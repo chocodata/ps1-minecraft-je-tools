@@ -15,7 +15,7 @@ C:\Users\<UserName>\AppData\Roaming\.minecraft\saves\<WorldName>\generated\minec
 ### Directory Structure
 Place the nbt file in the same directory as the ps1 file.
 ```
-├── <nbt file name>.nbt   // input file
+├── <nbt file name>.nbt
 └── Convert-NBT2JSON.ps1
 ```
 If there are multiple nbt files, the latest file will be processed.
