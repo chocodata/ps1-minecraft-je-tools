@@ -21,3 +21,4 @@ Place the nbt file in the same directory as the ps1 file.
 If there are multiple nbt files, the latest file will be processed.
 
 ## Convert-JSON2Command.ps1
+Convert Minecraft json file to command txet file.
