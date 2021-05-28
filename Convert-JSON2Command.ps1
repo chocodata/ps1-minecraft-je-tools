@@ -38,14 +38,33 @@ foreach($workBlock in $nbtJson.blocks)
 
 foreach($workEntity in $nbtJson.entities)
 {
-    $resultText += "/summon "
-    $resultText += $workEntity.nbt.id                   + " "
-    $resultText += ($workEntity.pos[0] -replace "d","") + " "
-    $resultText += ($workEntity.pos[1] -replace "d","") + " "
-    $resultText += ($workEntity.pos[2] -replace "d","") + " "
-    $resultText += $workEntity.nbt | ConvertTo-Json -Compress
+    if($workEntity.nbt.id -ne $null)
+    {
+        $resultText += "/summon "
+        $resultText += $workEntity.nbt.id + " "
 
-    $resultText += "`r`n"
+        # int value
+        $resultText += [string]$workEntity.blockPos[0] + " "
+        $resultText += [string]$workEntity.blockPos[1] + " "
+        $resultText += [string]$workEntity.blockPos[2] + " "
+        
+        # update nbt.Pos
+        $workEntity.nbt.Pos = $workEntity.blockPos | ForEach-Object {[string]$_ + "d"}
+
+        <# double value
+        $resultText += ($workEntity.pos[0] -replace "d","") + " "
+        $resultText += ($workEntity.pos[1] -replace "d","") + " "
+        $resultText += ($workEntity.pos[2] -replace "d","") + " "
+
+        # update nbt.Pos
+        $workEntity.nbt.Pos = $workEntity.pos
+        #>
+
+
+        $resultText += $workEntity.nbt | ConvertTo-Json -Compress
+
+        $resultText += "`r`n"
+    }
 }
 
 $resultText = $resultText -replace "`r`n$",""
