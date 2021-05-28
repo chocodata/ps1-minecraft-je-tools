@@ -45,4 +45,4 @@ Place the command txt file in the same directory as the ps1 file.
 ```
 If there are multiple command txt files, the latest file will be processed.
 
-After executing PowerShell Script, "\<command txt file name\>.pos.<base pos x>.<base pos y>.<base pos z>.mcfunction" will be output to the same directory.
+After executing PowerShell Script, "\<command txt file name\>.pos.\<base pos x\>.\<base pos y\>.\<base pos z\>.mcfunction" will be output to the same directory.
