@@ -1,4 +1,4 @@
-# ps1-minecraft-tools
+# ps1-minecraft-je-tools
 ## Table of content
 - [Convert-NBT2JSON.ps1](#convert-nbt2jsonps1)         .nbt  --> .json
 - [Convert-JSON2Command.ps1](#convert-json2commandps1) .json --> .command.txt
