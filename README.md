@@ -19,6 +19,7 @@ Place the nbt file in the same directory as the ps1 file.
 └── Convert-NBT2JSON.ps1
 ```
 If there are multiple nbt files, the latest file will be processed.
+
 After executing .ps1, "<nbt file name>.json" will be output to the same directory.
 
 ## Convert-JSON2Command.ps1
