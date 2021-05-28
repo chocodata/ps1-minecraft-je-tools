@@ -39,7 +39,7 @@ foreach($workBlock in $nbtJson.blocks)
 foreach($workEntity in $nbtJson.entities)
 {
     $resultText += "/summon "
-    $resultText += $workEntity.nbt.id      + " "
+    $resultText += $workEntity.nbt.id                   + " "
     $resultText += ($workEntity.pos[0] -replace "d","") + " "
     $resultText += ($workEntity.pos[1] -replace "d","") + " "
     $resultText += ($workEntity.pos[2] -replace "d","") + " "
