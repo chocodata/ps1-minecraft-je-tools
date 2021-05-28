@@ -2,7 +2,7 @@
 ## Table of content
 - [Convert-NBT2JSON.ps1](#convert-nbt2jsonps1)         .nbt  --> .json
 - [Convert-JSON2Command.ps1](#convert-json2commandps1) .json --> .command.txt
-- [Convert-Command2McFunction.ps1](#Convert-Command2McFunction.ps1) .command.txt --> .mcfunction
+- [Convert-Command2McFunction.ps1](#convert-command2mcfunctionps1) .command.txt --> .mcfunction
 
 ## Convert-NBT2JSON.ps1
 Convert Minecraft nbt file to json file.
@@ -37,3 +37,12 @@ If there are multiple json files, the latest file will be processed.
 After executing PowerShell Script, "\<json file name\>.command.txt" will be output to the same directory.
 
 ## Convert-Command2McFunction.ps1
+Place the command txt file in the same directory as the ps1 file.
+```
+├── <command txt file name>.command.txt
+├── Convert-Command2McFunction.ps1
+└── Convert-Command2McFunction.ps1.Config.txt   // base pos x y z info
+```
+If there are multiple command txt files, the latest file will be processed.
+
+After executing PowerShell Script, "\<command txt file name\>.pos.<base pos x>.<base pos y>.<base pos z>.mcfunction" will be output to the same directory.
