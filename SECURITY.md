@@ -2,6 +2,9 @@
 
 ## Supported Versions
 
+### OS
+Windows 10
+
 ### Minecraft Java Edition
 
 | Version | Supported          |
