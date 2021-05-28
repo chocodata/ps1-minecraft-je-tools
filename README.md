@@ -20,7 +20,7 @@ Place the nbt file in the same directory as the ps1 file.
 ```
 If there are multiple nbt files, the latest file will be processed.
 
-After executing .ps1, "\<nbt file name\>.json" will be output to the same directory.
+After executing PowerShell Script, "\<nbt file name\>.json" will be output to the same directory.
 
 ## Convert-JSON2Command.ps1
 Convert Minecraft json file to command txet file.
