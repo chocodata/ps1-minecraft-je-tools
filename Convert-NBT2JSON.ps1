@@ -229,6 +229,7 @@ function Get-DataTagBSILFD($Script:nbtData, $i, $listType, $Script:resultText)
     }
     else
     {
+        # if list skip header
         $tagType = $listType
     }
 
@@ -277,6 +278,7 @@ function Get-DataTagBILArray($Script:nbtData, $i, $listType,$Script:resultText)
     }
     else
     {
+        # if list skip header
         $tagType = $listType
         $Script:resultText += "["
     }
