@@ -24,3 +24,13 @@ After executing PowerShell Script, "\<nbt file name\>.json" will be output to th
 
 ## Convert-JSON2Command.ps1
 Convert Minecraft json file to command txet file.
+
+### Directory Structure
+Place the json file in the same directory as the ps1 file.
+```
+├── <json file name>.json
+└── Convert-JSON2Command.ps1
+```
+If there are multiple json files, the latest file will be processed.
+
+After executing PowerShell Script, "\<json file name\>.command.txt" will be output to the same directory.
