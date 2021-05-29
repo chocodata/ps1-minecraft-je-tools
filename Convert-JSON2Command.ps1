@@ -49,7 +49,10 @@ foreach($workEntity in $nbtJson.entities)
         $resultText += [string]$workEntity.blockPos[2] + " "
         
         # update nbt.Pos
-        $workEntity.nbt.Pos = $workEntity.blockPos | ForEach-Object {[string]$_ + "d"}
+        #$workEntity.nbt.Pos = $workEntity.blockPos | ForEach-Object {[string]$_ + "d"}
+
+        # delete nbt.Pos
+        $workEntity.nbt.psobject.properties.remove("Pos")
 
         <# double value
         $resultText += ($workEntity.pos[0] -replace "d","") + " "
