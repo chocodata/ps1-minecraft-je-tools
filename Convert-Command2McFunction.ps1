@@ -2,7 +2,8 @@
 $filePath = (Get-ChildItem -LiteralPath $PSScriptRoot -Filter "*.command.txt" | Sort-Object -Property LastWriteTime | Select-Object -Last 1).FullName
 #$filePath = Join-Path $PSScriptRoot "<fileName>.txt"
 
-$commandText = Get-Content -LiteralPath $filePath -Encoding UTF8
+$commandText = @()
+$commandText += Get-Content -LiteralPath $filePath -Encoding UTF8
 
 # input ps1.config.txt
 $workPosXYZ = ((Get-Content -LiteralPath ($PSCommandPath + ".config.txt")) -split "`r`n")[0] -split " "
@@ -50,4 +51,4 @@ $posBaseXYZ += ($symbolX -replace "\~","t" -replace "\^","c") + $posBaseX + "."
 $posBaseXYZ += ($symbolY -replace "\~","t" -replace "\^","c") + $posBaseY + "."
 $posBaseXYZ += ($symbolZ -replace "\~","t" -replace "\^","c") + $posBaseZ
 $filePath    = $filePath.Substring(0, $filePath.Length - 12) + "." + $posBaseXYZ + ".mcfunction"
-Set-Content -Value $resultText -LiteralPath $filePath
+Set-Content -Value $resultText -LiteralPath $filePath -Encoding UTF8
