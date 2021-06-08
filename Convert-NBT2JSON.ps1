@@ -88,7 +88,16 @@ function Get-DataTagString($Script:nbtData, $i, $listType, $Script:resultText)
     if($stringByteCount -ne 0)
     {
         # [Data]string
-        $Script:resultText += """" + [System.Text.Encoding]::UTF8.GetString($Script:nbtData[($i+2)..($i+2+$stringByteCount-1)]) + """"
+        $string = [System.Text.Encoding]::UTF8.GetString($Script:nbtData[($i+2)..($i+2+$stringByteCount-1)])
+        
+        if($string -match "{|}")
+        {
+            $Script:resultText += "'" +  $string + "'"
+        }
+        else
+        {
+            $Script:resultText += """" + $string + """"
+        }
     }
     else
     {
@@ -311,4 +320,4 @@ Select-NbtTag $Script:nbtData 0 $null $Script:resultText | Out-Null
 # output .json file
 $Script:resultText = $Script:resultText | ConvertFrom-Json | ConvertTo-Json -Depth 64
 $filePath = $filePath.Substring(0, $filePath.Length - 4) + ".json"
-Set-Content -Value $Script:resultText -LiteralPath $filePath
+Set-Content -Value $Script:resultText -LiteralPath $filePath -Encoding UTF8
