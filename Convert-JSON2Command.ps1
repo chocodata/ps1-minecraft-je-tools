@@ -26,9 +26,9 @@ foreach($workBlock in $nbtJson.blocks)
     if($workBlock.nbt -ne $null)
     {
         $nbtWork = $workBlock.nbt | ConvertTo-Json -Compress
-        $nbtWork = $nbtWork -replace """minecraft:(.*?)""","#00#minecraft:`$1#00#"
-        $nbtWork = $nbtWork -replace """",""
-        $nbtWork = $nbtWork -replace "#00#",""""
+        #$nbtWork = $nbtWork -replace """minecraft:(.*?)""","#00#minecraft:`$1#00#"
+        #$nbtWork = $nbtWork -replace """",""
+        #$nbtWork = $nbtWork -replace "#00#",""""
 
         $resultText += $nbtWork
     }
@@ -77,4 +77,4 @@ $resultText = $resultText -split "`r`n" | ?{$_ -notmatch "minecraft:air"}
 
 # output .command.txt file
 $filePath = $filePath.Substring(0, $filePath.Length - 5) + ".command.txt"
-Set-Content -Value $resultText -LiteralPath $filePath
+Set-Content -Value $resultText -LiteralPath $filePath -Encoding UTF8
