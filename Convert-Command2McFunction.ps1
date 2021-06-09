@@ -52,3 +52,7 @@ $posBaseXYZ += ($symbolY -replace "\~","t" -replace "\^","c") + $posBaseY + "."
 $posBaseXYZ += ($symbolZ -replace "\~","t" -replace "\^","c") + $posBaseZ
 $filePath    = $filePath.Substring(0, $filePath.Length - 12) + "." + $posBaseXYZ + ".mcfunction"
 Set-Content -Value $resultText -LiteralPath $filePath -Encoding UTF8
+
+# utf8 no bom
+$utf8 = New-Object System.Text.UTF8Encoding $false
+Set-Content -Value $utf8.GetBytes((Get-Content -LiteralPath $filePath -Raw)) -LiteralPath $filePath -Encoding Byte
