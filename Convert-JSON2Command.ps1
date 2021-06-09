@@ -78,3 +78,7 @@ $resultText = $resultText -split "`r`n" | ?{$_ -notmatch "minecraft:air"}
 # output .command.txt file
 $filePath = $filePath.Substring(0, $filePath.Length - 5) + ".command.txt"
 Set-Content -Value $resultText -LiteralPath $filePath -Encoding UTF8
+
+# utf8 no bom
+$utf8 = New-Object System.Text.UTF8Encoding $false
+Set-Content -Value $utf8.GetBytes((Get-Content -LiteralPath $filePath -Raw)) -LiteralPath $filePath -Encoding Byte
