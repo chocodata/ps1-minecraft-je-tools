@@ -26,9 +26,12 @@ foreach($workBlock in $nbtJson.blocks)
     if($workBlock.nbt -ne $null)
     {
         $nbtWork = $workBlock.nbt | ConvertTo-Json -Compress
-        #$nbtWork = $nbtWork -replace """minecraft:(.*?)""","#00#minecraft:`$1#00#"
-        #$nbtWork = $nbtWork -replace """",""
-        #$nbtWork = $nbtWork -replace "#00#",""""
+        if($nbtWork -notmatch "Text")
+        {
+            $nbtWork = $nbtWork -replace """minecraft:(.*?)""","#00#minecraft:`$1#00#"
+            $nbtWork = $nbtWork -replace """",""
+            $nbtWork = $nbtWork -replace "#00#",""""
+        }
 
         $resultText += $nbtWork
     }
