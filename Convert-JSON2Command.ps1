@@ -17,7 +17,7 @@ foreach($workBlock in $nbtJson.blocks)
 
     if($nbtJson.palette[$workBlock.state].Properties -ne $null)
     {
-        $propertiesWork = $nbtJson.palette[$workBlock.state].Properties  | ConvertTo-Json -Compress
+        $propertiesWork = $nbtJson.palette[$workBlock.state].Properties  | ConvertTo-Json -Compress -Depth 64
         $propertiesWork = $propertiesWork -replace "^{","[" -replace "}$","]" -replace ":","=" -replace """",""
         
         $resultText += $propertiesWork
@@ -25,7 +25,7 @@ foreach($workBlock in $nbtJson.blocks)
 
     if($workBlock.nbt -ne $null)
     {
-        $nbtWork = $workBlock.nbt | ConvertTo-Json -Compress
+        $nbtWork = $workBlock.nbt | ConvertTo-Json -Compress -Depth 64
         if($nbtWork -notmatch "Text")
         {
             $nbtWork = $nbtWork -replace """minecraft:(.*?)""","#00#minecraft:`$1#00#"
@@ -67,7 +67,7 @@ foreach($workEntity in $nbtJson.entities)
         #>
 
 
-        $resultText += $workEntity.nbt | ConvertTo-Json -Compress
+        $resultText += $workEntity.nbt | ConvertTo-Json -Compress -Depth 64
 
         $resultText += "`r`n"
     }
